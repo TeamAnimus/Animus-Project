@@ -15,6 +15,11 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
+////////////////////////////////////////////////////////////
+//This was the first test screen. Will be useful for////////
+//learning how libGDX and Box2d Lights work.////////////////
+////////////////////////////////////////////////////////////
+
 public class Test implements Screen {
 	private Image Image = new Image(new Texture(Gdx.files.internal("TestMap.png")));
 	private Image Animus = new Image(new Texture(Gdx.files.internal("Animus.png")));

@@ -1,17 +1,14 @@
 package greenpumpkin.screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
-//
-//Empty Class that will be useful for copy pasta
-//
+////////////////////////////////////////////////////////////
+//This is an empty screen. It will be made as a standard////
+//screen for when creating new screens./////////////////////
+////////////////////////////////////////////////////////////
 
 public class EmptyScreen implements Screen {
 	private Stage stage = new Stage();

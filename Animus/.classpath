@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="assets"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="lib/bin/artemis.jar"/>
+	<classpathentry kind="lib" path="lib/bin/artemis.jar" sourcepath="lib/src/artemis-src.jar"/>
 	<classpathentry kind="lib" path="lib/bin/box2dlights-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/bin/gdx-1.2.0.jar"/>
 	<classpathentry kind="lib" path="lib/bin/gdx-backend-lwjgl-1.2.0.jar"/>

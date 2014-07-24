@@ -1,0 +1,10 @@
+package greenpumpkin.artemis.entities;
+
+////////////////////////////////////////////////////////////
+//The Entity factory is an initial starting point for the///
+//entities. Entities will each have their own classes.//////
+////////////////////////////////////////////////////////////
+
+public class EntityFactory {
+
+}
