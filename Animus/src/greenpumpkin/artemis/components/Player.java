@@ -1,4 +1,5 @@
 package greenpumpkin.artemis.components;
 
-public class Player{
+public class Player {
+
 }

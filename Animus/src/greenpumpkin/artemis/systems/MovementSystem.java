@@ -1,5 +1,5 @@
 package greenpumpkin.artemis.systems;
 
-public class MovementSystem{
-		
+public class MovementSystem {
+
 }
