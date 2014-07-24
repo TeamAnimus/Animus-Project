@@ -19,6 +19,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
+////////////////////////////////////////////////////////////
+//This is the Tiled test screen. It is useful for///////////
+//learning how the cameras and Tiled work./////////////////
+////////////////////////////////////////////////////////////
+
 public class TestMap implements Screen {
 	private Stage stage = new Stage();
 	private OrthographicCamera lightCamera;

@@ -1,17 +1,14 @@
 package greenpumpkin.screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.actions.Actions;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
-//
-//placeholder menu class.
-//
+////////////////////////////////////////////////////////////
+//This is the main menu screen./////////////////////////////
+//This screen opens after the opening logo splash screen.///
+////////////////////////////////////////////////////////////
 
 public class MenuMain implements Screen {
 	private Stage stage = new Stage();
