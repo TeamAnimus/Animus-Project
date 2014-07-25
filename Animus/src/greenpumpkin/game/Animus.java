@@ -25,9 +25,6 @@ public class Animus extends Game {
 		cfg.title = "Animus";
 		cfg.width = 960;
 		cfg.height = 640;
-		cfg.vSyncEnabled=true;
-		FPSLogger fps = new FPSLogger();
-		fps.log();
 		new LwjglApplication(new Animus(), cfg);
 	}
 }
