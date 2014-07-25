@@ -25,6 +25,7 @@ public class Animus extends Game {
 		cfg.title = "Animus";
 		cfg.width = 960;
 		cfg.height = 640;
+		cfg.foregroundFPS=240;
 		new LwjglApplication(new Animus(), cfg);
 	}
 }
