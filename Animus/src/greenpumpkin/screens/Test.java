@@ -72,11 +72,11 @@ public class Test implements Screen {
 		
 		//lights creation
 		//water
-		new PointLight(rayHandler, numRays, new Color((float)(Math.random()),(float)(Math.random()),(float)(Math.random()),1f), lightDistance*3, -20, 8);
-		new PointLight(rayHandler, numRays, new Color((float)(Math.random()),(float)(Math.random()),(float)(Math.random()),1f), lightDistance*2, -15, 8);
+		new PointLight(rayHandler, numRays, new Color(0f,0f,0.6f,1f), lightDistance*3, -20, 8);
+		//new PointLight(rayHandler, numRays, new Color(0f,0f,0.6f,1f), lightDistance*2, -15, 8);
 		//entrance
-		new ConeLight(rayHandler, numRays, new Color((float)(Math.random()),(float)(Math.random()),(float)(Math.random()),1f), lightDistance*8, 30, 17,140,55);
-		new PointLight(rayHandler, numRays, new Color((float)(Math.random()),(float)(Math.random()),(float)(Math.random()),1f), lightDistance, 25.1f, 21f);
+		new ConeLight(rayHandler, numRays, new Color(0.1f,0.15f,0.05f,1f), lightDistance*8, 30, 17,140,55);
+		new PointLight(rayHandler, numRays, new Color(1f,1f,0.8f,1f), lightDistance, 25.1f, 21f);
 		//crystals
 		//blue
 		new PointLight(rayHandler, numRays, new Color(0f,0f,0.6f,1f), lightDistance/2, -10, 20);
@@ -108,7 +108,7 @@ public class Test implements Screen {
 	
 	@Override
 	public void render(float delta) {
-		light = new PointLight(rayHandler, numRays, new Color((float)(Math.random()),(float)(Math.random()),(float)(Math.random()),1f), lightDistance*3, (float)(Math.random())*30, (float)(Math.random())*16);
+		light = new PointLight(rayHandler, numRays, new Color((float)(Math.random()),(float)(Math.random()),(float)(Math.random()),1f), lightDistance*3, (float)(Math.random())*20*2-15, (float)(Math.random())*16);
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		stage.act();
