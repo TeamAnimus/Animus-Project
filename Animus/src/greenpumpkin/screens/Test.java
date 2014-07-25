@@ -40,6 +40,7 @@ public class Test implements Screen {
 	//END OF LIGHTBOX STUFF
 	
 	PointLight light;
+	PointLight light2;
 	
 	@Override
 	public void show() {
@@ -109,12 +110,14 @@ public class Test implements Screen {
 	@Override
 	public void render(float delta) {
 		light = new PointLight(rayHandler, numRays, new Color((float)(Math.random()),(float)(Math.random()),(float)(Math.random()),1f), lightDistance*3, (float)(Math.random())*20*2-15, (float)(Math.random())*16);
+		light2 = new PointLight(rayHandler, numRays, new Color((float)(Math.random()),(float)(Math.random()),(float)(Math.random()),1f), lightDistance*3, (float)(Math.random())*20*2-15, (float)(Math.random())*16);
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		stage.act();
 		stage.draw();
 		rayHandler.updateAndRender();
 		light.remove();
+		light2.remove();
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import greenpumpkin.screens.*;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.badlogic.gdx.graphics.FPSLogger;
 
 ////////////////////////////////////////////////////////////
 //This is the main class.It sets the default settings///////
@@ -24,6 +25,9 @@ public class Animus extends Game {
 		cfg.title = "Animus";
 		cfg.width = 960;
 		cfg.height = 640;
+		cfg.vSyncEnabled=true;
+		FPSLogger fps = new FPSLogger();
+		fps.log();
 		new LwjglApplication(new Animus(), cfg);
 	}
 }
