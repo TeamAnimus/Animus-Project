@@ -17,7 +17,7 @@ public class PlayerE {
 	
 	public static Entity create(World world, float x, float y) {
 		Entity e = world.createEntity();
-		
+
 		PositionC position = new PositionC();
 		position.x = x;
 		position.y = y;
