@@ -1,8 +1,8 @@
 package greenpumpkin.artemis.entities;
 
-import greenpumpkin.artemis.components.Player;
-import greenpumpkin.artemis.components.Position;
-import greenpumpkin.artemis.components.Velocity;
+import greenpumpkin.artemis.components.PlayerC;
+import greenpumpkin.artemis.components.PositionC;
+import greenpumpkin.artemis.components.VelocityC;
 import com.artemis.Entity;
 import com.artemis.World;
 import com.artemis.managers.GroupManager;
@@ -13,22 +13,22 @@ import com.artemis.managers.GroupManager;
 ////////////////////////////////////////////////////////////
 
 
-public class CreatePlayer {
+public class PlayerE {
 	
-	public static Entity createPlayer(World world, float x, float y) {
+	public static Entity create(World world, float x, float y) {
 		Entity e = world.createEntity();
 		
-		Position position = new Position();
+		PositionC position = new PositionC();
 		position.x = x;
 		position.y = y;
 		e.addComponent(position);
 		
-		Velocity velocity = new Velocity();
+		VelocityC velocity = new VelocityC();
 		velocity.velX = 0;
 		velocity.velY = 0;
 		e.addComponent(velocity);
 		
-		e.addComponent(new Player());
+		e.addComponent(new PlayerC());
 		
 		world.getManager(GroupManager.class).add(e, "Ben");
 		

@@ -7,7 +7,7 @@ import com.artemis.Component;
 //This is a universal component for anything on screen./////
 ////////////////////////////////////////////////////////////
 
-public class Position extends Component {
+public class PositionC extends Component {
 	public float x, y;
 	
 	public void addX(float x) {

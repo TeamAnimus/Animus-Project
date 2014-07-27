@@ -3,10 +3,10 @@ package greenpumpkin.artemis.components;
 import com.artemis.Component;
 
 ////////////////////////////////////////////////////////////
-//This is the component for velocity.///////////////////////
-//This is a universal component for anything that moves.////
+//This is the player component that will attached///////////
+//to the controllable player entity.////////////////////////
 ////////////////////////////////////////////////////////////
 
-public class Velocity extends Component {
-	public float velX, velY;
+public class PlayerC extends Component {
+
 }
