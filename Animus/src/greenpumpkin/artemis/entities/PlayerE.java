@@ -14,24 +14,24 @@ import com.artemis.managers.GroupManager;
 
 
 public class PlayerE {
-	
+
 	public static Entity create(World world, float x, float y) {
 		Entity e = world.createEntity();
-		
+
 		PositionC position = new PositionC();
 		position.x = x;
 		position.y = y;
 		e.addComponent(position);
-		
+
 		VelocityC velocity = new VelocityC();
 		velocity.velX = 0;
 		velocity.velY = 0;
 		e.addComponent(velocity);
-		
+
 		e.addComponent(new PlayerC());
-		
+
 		world.getManager(GroupManager.class).add(e, "Ben");
-		
+
 		return e;
 	}
 }
