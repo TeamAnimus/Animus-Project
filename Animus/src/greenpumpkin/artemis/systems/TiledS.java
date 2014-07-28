@@ -1,5 +1,6 @@
 package greenpumpkin.artemis.systems;
 
+import greenpumpkin.artemis.components.PositionC;
 import greenpumpkin.artemis.components.TiledC;
 import greenpumpkin.artemis.entities.TiledMapFactory;
 
@@ -16,14 +17,14 @@ public class TiledS extends EntityProcessingSystem {
 
 	@SuppressWarnings("unchecked")
 	public TiledS(OrthographicCamera camera) {
-		super(Aspect.getAspectForAll(TiledC.class));
+		super(Aspect.getAspectForAll(TiledC.class, PositionC.class));
 		this.camera=camera;
 	}
 	
 	@Override
 	protected void initialize(){
-		TiledMapFactory.create(world, "TestMap.tmx", 10f, camera);
-		System.out.println("init end. entity created.");
+		TiledMapFactory.create(world, "TestMapBack.tmx", 1/16f, camera).addToWorld();
+		TiledMapFactory.create(world, "TestMap.tmx", 1/16f, camera).addToWorld();
 	}
 
 	@Override
@@ -32,7 +33,5 @@ public class TiledS extends EntityProcessingSystem {
 		camera.update();
 		map.renderer.setView(camera);
 		map.renderer.render();
-		System.out.println("made it to end of process");
 	}
-
 }

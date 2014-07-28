@@ -27,12 +27,12 @@ public class TestWorld implements Screen {
 	public void show() {
 		world = new com.artemis.World();
 		//camera creation
-		lightCamera = new OrthographicCamera(Animus.WIDTH, Animus.HEIGHT);
-		lightCamera.position.set(10, 25, 0);
+		lightCamera = new OrthographicCamera(32,18);
+		lightCamera.position.set(16, 9, 0);
 		lightCamera.update(true);
 		
 		caveTheme.play();
-		caveTheme.setLooping(true); 
+		caveTheme.setLooping(true);
 		
 		world.setManager(new GroupManager());
 		world.setSystem(new TiledS(lightCamera));
@@ -43,14 +43,11 @@ public class TestWorld implements Screen {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		stage.act();
-		stage.draw();
 		moveCamera(delta);
 		
 		lightCamera.update();
 		
 		world.setDelta(delta);
-		System.out.println("before process");
 		world.process();
 	}
 
