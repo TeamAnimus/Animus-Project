@@ -2,20 +2,12 @@ package greenpumpkin.screens;
 
 import greenpumpkin.artemis.systems.TiledS;
 import greenpumpkin.game.*;
-import box2dLight.ConeLight;
-import box2dLight.PointLight;
-import box2dLight.RayHandler;
-
 import com.artemis.managers.GroupManager;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 ////////////////////////////////////////////////////////////

@@ -3,6 +3,7 @@ package greenpumpkin.artemis.entities;
 import greenpumpkin.artemis.components.TiledC;
 import com.artemis.Entity;
 import com.artemis.World;
+import com.artemis.managers.GroupManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -20,6 +21,8 @@ public class TiledMapFactory {
 		map.renderer.setView(camera);
 		System.out.println(map.renderer.toString());
 		e.addComponent(map);
+		
+		world.getManager(GroupManager.class).add(e, "Map");
 		
 		return e;
 	}

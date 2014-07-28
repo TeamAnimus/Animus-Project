@@ -23,17 +23,16 @@ public class TiledS extends EntityProcessingSystem {
 	@Override
 	protected void initialize(){
 		TiledMapFactory.create(world, "TestMap.tmx", 10f, camera);
-		System.out.println("init");
+		System.out.println("init end. entity created.");
 	}
 
 	@Override
 	protected void process(Entity e) {
-		System.out.println("eergh");
 		TiledC map = tiledMap.get(e);
 		camera.update();
 		map.renderer.setView(camera);
 		map.renderer.render();
-		System.out.println("made it to process");
+		System.out.println("made it to end of process");
 	}
 
 }
