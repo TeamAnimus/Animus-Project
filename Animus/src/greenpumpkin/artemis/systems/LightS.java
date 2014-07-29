@@ -3,6 +3,7 @@ package greenpumpkin.artemis.systems;
 import java.util.HashMap;
 
 import greenpumpkin.artemis.components.LightC;
+import greenpumpkin.artemis.components.PositionC;
 import greenpumpkin.artemis.entities.LightFactory;
 import greenpumpkin.artemis.units.AnimusWorld;
 import box2dLight.Light;
@@ -21,7 +22,7 @@ public class LightS extends IntervalEntitySystem {
 
 	@SuppressWarnings("unchecked")
 	public LightS() {
-		super(Aspect.getAspectForAll(LightC.class), 1/60.0f);
+		super(Aspect.getAspectForAll(LightC.class, PositionC.class), 1/60.0f);
 	}
 	
 	protected void initialize(){

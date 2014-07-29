@@ -1,6 +1,7 @@
 package greenpumpkin.artemis.entities;
 
 import greenpumpkin.artemis.components.LightC;
+import greenpumpkin.artemis.components.PositionC;
 import box2dLight.ConeLight;
 import box2dLight.PointLight;
 import box2dLight.RayHandler;
@@ -17,6 +18,11 @@ public class LightFactory {
 		LightC light = new LightC();
 		light.light = new PointLight(rayHandler, numRays, color, lightDistance, x, y);
 		e.addComponent(light);
+		
+		PositionC pos = new PositionC();
+		pos.x=x;
+		pos.y=y;
+		e.addComponent(pos);
 		
 		return e;
 	}
