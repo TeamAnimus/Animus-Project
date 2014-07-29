@@ -32,6 +32,19 @@ public class LightS extends EntityProcessingSystem {
 	}
 	
 	protected void initialize(){
+		initRayHandler();
+		LightFactory.createPoint(world, rayHandler, numRays, new Color(0.0f, 0.0f, 0.6f, 1.0f), lightDistance*4, 6f, 1f).addToWorld();
+		LightFactory.createPoint(world, rayHandler, numRays, new Color(1.0f, 1.0f, 0.8f, 1.0f), lightDistance*2, 35f, 11f).addToWorld();
+		//the real list of lights will be created with a for loop where the numbers come from a JSON file.
+	}
+	
+	@Override
+	protected void process(Entity e) {
+		//LightC light = lightMap.get(e);
+		rayHandler.setCombinedMatrix(camera.combined);
+		rayHandler.render();
+	}
+	void initRayHandler(){
 		rayHandler = new RayHandler(boxWorld);
 		rayHandler.setCombinedMatrix(camera.combined);
 		RayHandler.setGammaCorrection(true);
@@ -40,15 +53,5 @@ public class LightS extends EntityProcessingSystem {
 		rayHandler.setCulling(true);
 		rayHandler.setBlurNum(1);
 		rayHandler.setShadows(true); 
-		LightFactory.createPoint(world, rayHandler, numRays, new Color(0.0f, 0.0f, 0.6f, 1.0f), lightDistance*4, 6f, 1f).addToWorld();
-		LightFactory.createPoint(world, rayHandler, numRays, new Color(1.0f, 1.0f, 0.8f, 1.0f), lightDistance*2, 35f, 11f).addToWorld();
-		//the real list of lights will be created with a for loop where the numbers come from a JSON file.
-	}
-	
-	@Override
-	protected void process(Entity e) {
-		LightC light = lightMap.get(e);
-		rayHandler.setCombinedMatrix(camera.combined);
-		rayHandler.render();
 	}
 }
