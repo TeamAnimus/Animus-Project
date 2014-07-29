@@ -1,4 +1,4 @@
-package greenpumpkin.artemis.units;
+package greenpumpkin.artemis;
 
 import com.artemis.World;
 import com.badlogic.gdx.graphics.OrthographicCamera;

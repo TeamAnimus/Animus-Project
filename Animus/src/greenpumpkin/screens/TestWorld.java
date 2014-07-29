@@ -1,15 +1,14 @@
 package greenpumpkin.screens;
 
+import greenpumpkin.artemis.AnimusWorld;
 import greenpumpkin.artemis.systems.LightS;
 import greenpumpkin.artemis.systems.TiledS;
-import greenpumpkin.artemis.units.AnimusWorld;
 import greenpumpkin.game.*;
 import com.artemis.managers.GroupManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 ////////////////////////////////////////////////////////////
@@ -29,9 +28,6 @@ public class TestWorld implements Screen {
 		world = new AnimusWorld();
 		//camera creation
 		
-		caveTheme.play();
-		caveTheme.setLooping(true);
-		
 		AnimusWorld.initCamera();
 		AnimusWorld.initRayHandler();
 		
@@ -39,6 +35,9 @@ public class TestWorld implements Screen {
 		world.setSystem(new TiledS());
 		world.setSystem(new LightS());
 		world.initialize();
+		
+		caveTheme.play();
+		caveTheme.setLooping(true);
 	}
 	
 	@Override

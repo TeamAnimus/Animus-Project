@@ -1,16 +1,14 @@
 package greenpumpkin.artemis.systems;
 
+import greenpumpkin.artemis.AnimusWorld;
 import greenpumpkin.artemis.components.PositionC;
 import greenpumpkin.artemis.components.TiledC;
 import greenpumpkin.artemis.entities.TiledMapFactory;
-import greenpumpkin.artemis.units.AnimusWorld;
-
 import com.artemis.Aspect;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.artemis.annotations.Mapper;
 import com.artemis.systems.*;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 
 public class TiledS extends EntityProcessingSystem {
 	@Mapper ComponentMapper<TiledC> tiledMap;
