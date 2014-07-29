@@ -2,6 +2,7 @@ package greenpumpkin.screens;
 
 import greenpumpkin.artemis.systems.LightS;
 import greenpumpkin.artemis.systems.TiledS;
+import greenpumpkin.artemis.units.AnimusWorld;
 import greenpumpkin.game.*;
 import com.artemis.managers.GroupManager;
 import com.badlogic.gdx.Gdx;
@@ -22,11 +23,11 @@ public class TestWorld implements Screen {
 	
 	Music caveTheme = Gdx.audio.newMusic(Gdx.files.internal("music/caveTheme.mp3"));
 	
-	private com.artemis.World world;
+	private AnimusWorld world;
 	
 	@Override
 	public void show() {
-		world = new com.artemis.World();
+		world = new AnimusWorld();
 		//camera creation
 		lightCamera = new OrthographicCamera(32,18);
 		lightCamera.position.set(16, 9, 0);
@@ -37,7 +38,7 @@ public class TestWorld implements Screen {
 		
 		world.setManager(new GroupManager());
 		world.setSystem(new TiledS(lightCamera));
-		world.setSystem(new LightS(lightCamera));
+		world.setSystem(new LightS());
 		world.initialize();
 	}
 	
