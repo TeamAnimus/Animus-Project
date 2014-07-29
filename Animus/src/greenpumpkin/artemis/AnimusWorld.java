@@ -16,7 +16,7 @@ public class AnimusWorld extends World {
 		rayHandler.setCombinedMatrix(camera.combined);
 		RayHandler.setGammaCorrection(true);
 		RayHandler.useDiffuseLight(true);
-		rayHandler.setAmbientLight(0.2f, 0.2f, 0.2f, 1f);
+		rayHandler.setAmbientLight(0.02f, 0.02f, 0.02f, 1f);
 		rayHandler.setCulling(true);
 		rayHandler.setBlurNum(1);
 		rayHandler.setShadows(true); 

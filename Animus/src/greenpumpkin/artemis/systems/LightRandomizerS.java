@@ -13,14 +13,17 @@ public class LightRandomizerS extends IntervalEntityProcessingSystem {
 
 	@SuppressWarnings("unchecked")
 	public LightRandomizerS() {
-		super(Aspect.getAspectForAll(LightC.class, PositionC.class),60/128f);
+		super(Aspect.getAspectForAll(LightC.class, PositionC.class),30/128f);
 	}
 
 	@Override
 	protected void process(Entity e) {
 		PositionC newPos = positionMap.get(e);
-		newPos.x=(float) (Math.random()*30);
-		newPos.y=(float) (Math.random()*20);
+		if(newPos.x<0)
+			newPos.x=(float) (Math.random()*25+3);
+		else
+			newPos.x=(float) (-20);
+		newPos.y=(float) (Math.random()*15+2);
 	}
 
 }
