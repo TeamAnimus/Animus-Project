@@ -6,5 +6,5 @@ import box2dLight.Light;
 //may need to extend all the forms of light
 
 public class LightC extends Component {
-	Light light;
+	public Light light;
 }

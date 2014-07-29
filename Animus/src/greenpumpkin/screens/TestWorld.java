@@ -1,5 +1,6 @@
 package greenpumpkin.screens;
 
+import greenpumpkin.artemis.systems.LightS;
 import greenpumpkin.artemis.systems.TiledS;
 import greenpumpkin.game.*;
 import com.artemis.managers.GroupManager;
@@ -36,6 +37,7 @@ public class TestWorld implements Screen {
 		
 		world.setManager(new GroupManager());
 		world.setSystem(new TiledS(lightCamera));
+		world.setSystem(new LightS(lightCamera));
 		world.initialize();
 	}
 	
