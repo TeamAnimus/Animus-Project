@@ -15,8 +15,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 public class LightS extends EntitySystem {
 	@Mapper ComponentMapper<LightC> lightMap;
 	private OrthographicCamera camera;
-	public int numRays = 16; //how many rays are emitted for shadow casting
-	public float lightDistance = 12f; // distance light goes
+	public final int numRays = 16; //how many rays are emitted for shadow casting
+	public final float lightDistance = 12f; // distance light goes
 	public RayHandler rayHandler; //the main object of light2d, heavily important
 
 	@SuppressWarnings("unchecked")
