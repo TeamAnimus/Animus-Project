@@ -47,8 +47,8 @@ public class LightS extends IntervalEntitySystem {
 		for (int i = 0, s = entities.size(); s > i; i++) {
 			change(entities.get(i));
 		}
-		 AnimusWorld.rayHandler.setCombinedMatrix(AnimusWorld.camera.combined);
-		 AnimusWorld.rayHandler.updateAndRender();
+		AnimusWorld.rayHandler.setCombinedMatrix(AnimusWorld.camera.combined);
+		AnimusWorld.rayHandler.updateAndRender();
 	}
 
 	private void change(Entity e) {
