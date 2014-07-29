@@ -48,15 +48,15 @@ public class LightS extends IntervalEntitySystem {
 			change(entities.get(i));
 		}
 		 AnimusWorld.rayHandler.setCombinedMatrix(AnimusWorld.camera.combined);
-		 AnimusWorld.rayHandler.render();
+		 AnimusWorld.rayHandler.updateAndRender();
 	}
 
 	private void change(Entity e) {
 		LightC newLight = lightMap.get(e);
 		PositionC newPos = positionMap.get(e);
 		newLight.light.setPosition(newPos.x, newPos.y);
-		newPos.x=(float) (Math.random()*10);
-		newPos.y=(float) (Math.random()*10);
+		newPos.x=(float) (Math.random()*30);
+		newPos.y=(float) (Math.random()*20);
 	}
 
 	@Override
