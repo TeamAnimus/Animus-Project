@@ -1,6 +1,7 @@
 package greenpumpkin.screens;
 
 import greenpumpkin.artemis.AnimusWorld;
+import greenpumpkin.artemis.entities.LightFactory;
 import greenpumpkin.artemis.systems.LightS;
 import greenpumpkin.artemis.systems.TiledS;
 import greenpumpkin.game.*;
@@ -8,6 +9,7 @@ import com.artemis.managers.GroupManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
@@ -35,6 +37,11 @@ public class TestWorld implements Screen {
 		world.setSystem(new TiledS());
 		world.setSystem(new LightS());
 		world.initialize();
+
+		//These lights will not be here. They are just for a test.
+		LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.0f, 0.0f, 0.6f, 1.0f),  AnimusWorld.lightDistance*4, 6f, 1f).addToWorld();
+		LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(1.0f, 1.0f, 0.8f, 1.0f),  AnimusWorld.lightDistance*2, 35f, 11f).addToWorld();
+		//the real list of lights will be created with a for loop where the numbers come from a JSON file, in a different system.
 		
 		caveTheme.play();
 		caveTheme.setLooping(true);
