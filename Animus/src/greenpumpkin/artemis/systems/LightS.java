@@ -9,8 +9,8 @@ import box2dLight.Light;
 import com.artemis.Aspect;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
+import com.artemis.EntitySystem;
 import com.artemis.annotations.Mapper;
-import com.artemis.systems.IntervalEntitySystem;
 import com.artemis.utils.ImmutableBag;
 
 ////////////////////////////////////////////////////////////
@@ -18,7 +18,7 @@ import com.artemis.utils.ImmutableBag;
 //This instantiates, renders, and destroys lights.//////////
 ////////////////////////////////////////////////////////////
 
-public class LightS extends IntervalEntitySystem {
+public class LightS extends EntitySystem {
 	@Mapper ComponentMapper<LightC> lightMap;
 	@Mapper ComponentMapper<PositionC> positionMap;
 
@@ -26,7 +26,7 @@ public class LightS extends IntervalEntitySystem {
 
 	@SuppressWarnings("unchecked")
 	public LightS() {
-		super(Aspect.getAspectForAll(LightC.class, PositionC.class), 1/60.0f);
+		super(Aspect.getAspectForAll(LightC.class, PositionC.class));
 	}
 
 	@Override
@@ -54,8 +54,6 @@ public class LightS extends IntervalEntitySystem {
 	private void change(Entity e) {
 		LightC newLight = lightMap.get(e);
 		PositionC newPos = positionMap.get(e);
-		newPos.x=(float) (Math.random()*30);
-		newPos.y=(float) (Math.random()*20);
 		newLight.light.setPosition(newPos.x, newPos.y);
 	}
 
