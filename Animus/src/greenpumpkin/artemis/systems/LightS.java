@@ -54,9 +54,9 @@ public class LightS extends IntervalEntitySystem {
 	private void change(Entity e) {
 		LightC newLight = lightMap.get(e);
 		PositionC newPos = positionMap.get(e);
-		newLight.light.setPosition(newPos.x, newPos.y);
 		newPos.x=(float) (Math.random()*30);
 		newPos.y=(float) (Math.random()*20);
+		newLight.light.setPosition(newPos.x, newPos.y);
 	}
 
 	@Override
