@@ -19,7 +19,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class TestWorld implements Screen {
 	private Stage stage = new Stage();
-	private OrthographicCamera lightCamera;
 	
 	Music caveTheme = Gdx.audio.newMusic(Gdx.files.internal("music/caveTheme.mp3"));
 	
@@ -29,15 +28,15 @@ public class TestWorld implements Screen {
 	public void show() {
 		world = new AnimusWorld();
 		//camera creation
-		lightCamera = new OrthographicCamera(32,18);
-		lightCamera.position.set(16, 9, 0);
-		lightCamera.update(true);
 		
 		caveTheme.play();
 		caveTheme.setLooping(true);
 		
+		AnimusWorld.initCamera();
+		AnimusWorld.initRayHandler();
+		
 		world.setManager(new GroupManager());
-		world.setSystem(new TiledS(lightCamera));
+		world.setSystem(new TiledS());
 		world.setSystem(new LightS());
 		world.initialize();
 	}
@@ -48,7 +47,7 @@ public class TestWorld implements Screen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		moveCamera(delta);
 		
-		lightCamera.update();
+		AnimusWorld.camera.update();
 		
 		world.setDelta(delta);
 		world.process();

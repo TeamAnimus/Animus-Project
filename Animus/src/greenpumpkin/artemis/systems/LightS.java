@@ -21,8 +21,6 @@ public class LightS extends EntitySystem {
 	}
 	
 	protected void initialize(){
-		AnimusWorld.initCamera();
-		AnimusWorld.initRayHandler();
 		LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.0f, 0.0f, 0.6f, 1.0f),  AnimusWorld.lightDistance*4, 6f, 1f).addToWorld();
 		LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(1.0f, 1.0f, 0.8f, 1.0f),  AnimusWorld.lightDistance*2, 35f, 11f).addToWorld();
 		//the real list of lights will be created with a for loop where the numbers come from a JSON file.
