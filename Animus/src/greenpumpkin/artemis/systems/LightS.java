@@ -45,13 +45,13 @@ public class LightS extends EntitySystem {
 	@Override
 	protected void processEntities(ImmutableBag<Entity> entities) {
 		for (int i = 0, s = entities.size(); s > i; i++) {
-			change(entities.get(i));
+			process(entities.get(i));
 		}
 		AnimusWorld.rayHandler.setCombinedMatrix(AnimusWorld.camera.combined);
 		AnimusWorld.rayHandler.updateAndRender();
 	}
 
-	private void change(Entity e) {
+	private void process(Entity e) {
 		LightC newLight = lightMap.get(e);
 		PositionC newPos = positionMap.get(e);
 		newLight.light.setPosition(newPos.x, newPos.y);

@@ -2,6 +2,7 @@ package greenpumpkin.screens;
 
 import greenpumpkin.artemis.AnimusWorld;
 import greenpumpkin.artemis.entities.LightFactory;
+import greenpumpkin.artemis.systems.LightCycleS;
 import greenpumpkin.artemis.systems.LightRandomizerS;
 import greenpumpkin.artemis.systems.LightS;
 import greenpumpkin.artemis.systems.TiledS;
@@ -36,14 +37,15 @@ public class TestWorld implements Screen {
 		world.setManager(new GroupManager());
 		world.setSystem(new TiledS());
 		world.setSystem(new LightS());
-		world.setSystem(new LightRandomizerS());
+		//world.setSystem(new LightRandomizerS());
+		world.setSystem(new LightCycleS());
 		world.initialize();
 
 		//These lights will not be here. They are just for a test.
-		LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.0f, 0.1f, 0.8f, 1.0f),  AnimusWorld.lightDistance, 6f, 1f).addToWorld();
-		LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(1.0f, 1.0f, 0.9f, 1.0f),  AnimusWorld.lightDistance/2, 35f, 11f).addToWorld();
-		LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.1f, 0.8f, 0.1f, 1.0f),  AnimusWorld.lightDistance, 35f, 11f).addToWorld();
-		LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.8f, 0.1f, 0.1f, 1.0f),  AnimusWorld.lightDistance, 35f, 11f).addToWorld();
+		//LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.0f, 0.1f, 0.8f, 1.0f), AnimusWorld.lightDistance*3, 6f, 1.0f, 2).addToWorld();
+		LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(1.0f, 1.0f, 0.9f, 1.0f), AnimusWorld.lightDistance*2, 35f, 11f, 1).addToWorld();
+		//LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.1f, 0.8f, 0.1f, 1.0f),  AnimusWorld.lightDistance, 35f, 11f).addToWorld();
+		//LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.8f, 0.1f, 0.1f, 1.0f),  AnimusWorld.lightDistance, 35f, 11f).addToWorld();
 		//the real list of lights will be created with a for loop where the numbers come from a JSON file, in a different system.
 
 		caveTheme.play();
