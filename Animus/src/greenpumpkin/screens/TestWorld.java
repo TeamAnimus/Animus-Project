@@ -47,7 +47,7 @@ public class TestWorld implements Screen {
 		//the real list of lights will be created with a for loop where the numbers come from a JSON file, in a different system.
 
 		caveTheme.play();
-		caveTheme.setLooping(true);
+		//caveTheme.setLooping(true);
 	}
 
 	@Override

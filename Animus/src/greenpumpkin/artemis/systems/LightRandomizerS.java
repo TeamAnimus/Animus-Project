@@ -10,20 +10,25 @@ import com.artemis.systems.IntervalEntityProcessingSystem;
 
 public class LightRandomizerS extends IntervalEntityProcessingSystem {
 	@Mapper ComponentMapper<PositionC> positionMap;
+	
+	int werb = 0;
 
 	@SuppressWarnings("unchecked")
 	public LightRandomizerS() {
-		super(Aspect.getAspectForAll(LightC.class, PositionC.class),30/128f);
+		super( Aspect.getAspectForAll(LightC.class, PositionC.class), 30f/128f );
 	}
 
 	@Override
 	protected void process(Entity e) {
 		PositionC newPos = positionMap.get(e);
+		if(werb<1540){
 		if(newPos.x<0)
 			newPos.x=(float) (Math.random()*25+3);
 		else
 			newPos.x=(float) (-20);
 		newPos.y=(float) (Math.random()*15+2);
+		werb++;
+		}
 	}
 
 }
