@@ -40,7 +40,7 @@ public class TestWorld implements Screen {
 
 		//These lights will not be here. They are just for a test.
 		LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.0f, 0.1f, 0.8f, 1.0f), AnimusWorld.lightDistance*3, 6f, 1.0f, 8.1f, 3.0f).addToWorld();
-		LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(1.0f, 1.0f, 0.9f, 1.0f), AnimusWorld.lightDistance*2, 35f, 11f, 8.4f, 4.0f).addToWorld();
+		LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(1.0f, 1.0f, 0.9f, 1.0f), AnimusWorld.lightDistance*2, 35f, 11f, 52.0f, 4.0f).addToWorld();
 		//LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.1f, 0.8f, 0.1f, 1.0f),  AnimusWorld.lightDistance, 35f, 11f).addToWorld();
 		//LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.8f, 0.1f, 0.1f, 1.0f),  AnimusWorld.lightDistance, 35f, 11f).addToWorld();
 		//the real list of lights will be created with a for loop where the numbers come from a JSON file, in a different system.

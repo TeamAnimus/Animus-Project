@@ -7,8 +7,4 @@ import box2dLight.Light;
 
 public class LightC extends Component {
 	public Light light;
-	public float maxDist = 0;
-	public float size = 0;
-	public float time = 0;
-	public float currTime = 0;
 }

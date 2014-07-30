@@ -1,6 +1,7 @@
 package greenpumpkin.artemis.entities;
 
 import greenpumpkin.artemis.components.LightC;
+import greenpumpkin.artemis.components.LightCycleC;
 import greenpumpkin.artemis.components.PositionC;
 import box2dLight.ConeLight;
 import box2dLight.PointLight;
@@ -17,10 +18,13 @@ public class LightFactory {
 		
 		LightC light = new LightC();
 		light.light = new PointLight(rayHandler, numRays, color, lightDistance, x, y);
-		light.time = time;
-		light.size = size;
-		light.maxDist=light.light.getDistance()+light.size;
 		e.addComponent(light);
+		
+		LightCycleC cycle = new LightCycleC();
+		cycle.time = time;
+		cycle.size = size;
+		cycle.maxDist=light.light.getDistance()+cycle.size;
+		e.addComponent(cycle);
 		
 		PositionC pos = new PositionC();
 		pos.x=x;
