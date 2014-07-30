@@ -12,13 +12,14 @@ import com.badlogic.gdx.graphics.Color;
 
 public class LightFactory {
 	
-	public static Entity createPoint(World world, RayHandler rayHandler, int numRays, Color color, float lightDistance, float x, float y, float time) {
+	public static Entity createPoint(World world, RayHandler rayHandler, int numRays, Color color, float lightDistance, float x, float y, float size, float time) {
 		Entity e = world.createEntity();
 		
 		LightC light = new LightC();
 		light.light = new PointLight(rayHandler, numRays, color, lightDistance, x, y);
 		light.time = time;
-		light.maxDist=light.light.getDistance()+1;
+		light.size = size;
+		light.maxDist=light.light.getDistance()+light.size;
 		e.addComponent(light);
 		
 		PositionC pos = new PositionC();
