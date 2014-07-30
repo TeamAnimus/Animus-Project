@@ -12,11 +12,10 @@ public class AnimusWorld extends World {
 	public static OrthographicCamera camera;
 	
 	public static void initRayHandler() {
+		RayHandler.useDiffuseLight(true);
 		rayHandler = new RayHandler(null);
 		rayHandler.setCombinedMatrix(camera.combined);
-		RayHandler.setGammaCorrection(true);
-		RayHandler.useDiffuseLight(true);
-		rayHandler.setAmbientLight(0.1f, 0.1f, 0.1f, 1f);
+		rayHandler.setAmbientLight(0.05f, 0.05f, 0.05f, 1f);
 		rayHandler.setCulling(true);
 		rayHandler.setBlurNum(1);
 		rayHandler.setShadows(true); 
