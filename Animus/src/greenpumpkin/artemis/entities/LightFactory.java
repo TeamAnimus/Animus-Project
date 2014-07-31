@@ -38,7 +38,7 @@ public class LightFactory {
 		LightCycleC cycle = new LightCycleC();
 		cycle.time = time;
 		cycle.size = size;
-		cycle.maxDist=light.light.getDistance()+cycle.size;
+		cycle.minDist=light.light.getDistance();
 		e.addComponent(cycle);
 		
 		PositionC pos = new PositionC();

@@ -39,8 +39,8 @@ public class TestWorld implements Screen {
 		world.initialize();
 
 		//These lights will not be here. They are just for a test.
-		LightFactory.createCyclePoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.0f, 0.1f, 0.8f, 1.0f), AnimusWorld.lightDistance*2, 6f, 1.0f,1f, 0.25f).addToWorld();
-		LightFactory.createCyclePoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(1.0f, 1.0f, 0.9f, 1.0f), AnimusWorld.lightDistance, 35f, 11f, 6.0f, 8.0f).addToWorld();
+		LightFactory.createCyclePoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.0f, 0.1f, 0.8f, 1.0f), AnimusWorld.lightDistance*1.5f, 6f, 1.0f,1f, 30f/64f).addToWorld();
+		LightFactory.createCyclePoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(1.0f, 1.0f, 0.9f, 1.0f), AnimusWorld.lightDistance, 35f, 11f, 7.7f, 1.875f*4f).addToWorld();
 		//LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.1f, 0.8f, 0.1f, 1.0f),  AnimusWorld.lightDistance, 35f, 11f).addToWorld();
 		//LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.8f, 0.1f, 0.1f, 1.0f),  AnimusWorld.lightDistance, 35f, 11f).addToWorld();
 		//the real list of lights will be created with a for loop where the numbers come from a JSON file, in a different system.
