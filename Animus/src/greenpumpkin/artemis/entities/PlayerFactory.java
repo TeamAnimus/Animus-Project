@@ -1,5 +1,6 @@
 package greenpumpkin.artemis.entities;
 
+import greenpumpkin.artemis.components.HealthC;
 import greenpumpkin.artemis.components.PlayerC;
 import greenpumpkin.artemis.components.PositionC;
 import greenpumpkin.artemis.components.VelocityC;
@@ -27,7 +28,11 @@ public class PlayerFactory {
 		velocity.velX = 0;
 		velocity.velY = 0;
 		e.addComponent(velocity);
-
+		
+		HealthC health = new HealthC();
+		health.health = 100;
+		e.addComponent(health);
+		
 		e.addComponent(new PlayerC());
 
 		world.getManager(GroupManager.class).add(e, "Ben");
