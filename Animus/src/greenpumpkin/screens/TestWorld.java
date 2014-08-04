@@ -36,11 +36,12 @@ public class TestWorld implements Screen {
 		world.setManager(new GroupManager());
 		world.setSystem(new ControllerInputS());
 		world.setSystem(new TiledS());
-		world.setSystem(new LightS());
 		//world.setSystem(new LightRandomizerS());
 		world.setSystem(new LightCycleS());
 		world.setSystem(new HealthS());
+		world.setSystem(new MovementS());
 		world.setSystem(new BatchRendererS());
+		world.setSystem(new LightS());
 		world.initialize();
 
 		//These lights will not be here. They are just for a test.
@@ -51,6 +52,7 @@ public class TestWorld implements Screen {
 		//the real list of lights will be created with a for loop where the numbers come from a JSON file, in a different system.
 
 		PlayerFactory.create(world, 10, 10).addToWorld();
+		world.addEntity(PlayerFactory.create(world, 12, 12));
 		
 		caveTheme.play();
 		caveTheme.setLooping(true);
