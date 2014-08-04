@@ -23,6 +23,10 @@ public class MovementS extends EntityProcessingSystem {
 	public MovementS() {
 		super(Aspect.getAspectForAll(PositionC.class, VelocityC.class));
 	}
+	
+	protected void begin() {
+		System.out.println("Movement is being called, but not processed yet.");
+	}
 
 	@Override
 	protected void process(Entity e) {
@@ -41,6 +45,11 @@ public class MovementS extends EntityProcessingSystem {
 			sprite.sprite.setPosition(position.x, position.y);
 		}
 		
-		System.out.println("Movement system has been called.");
+		System.out.println("Movement system has been processed.");
+	}
+	
+	@Override
+	protected boolean checkProcessing() {
+		return true;
 	}
 }

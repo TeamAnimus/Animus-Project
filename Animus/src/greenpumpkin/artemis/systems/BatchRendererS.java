@@ -41,7 +41,7 @@ public class BatchRendererS extends EntitySystem {
 
 	@Override
 	protected boolean checkProcessing() {
-		return false;
+		return true;
 	}
 
 }
