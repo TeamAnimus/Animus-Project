@@ -19,7 +19,6 @@ public class TiledMapFactory {
 		map.renderer = new OrthogonalTiledMapRenderer(map.tiledMap, mapSize);
 		map.renderer.setMap(map.tiledMap);
 		map.renderer.setView(camera);
-		System.out.println(map.renderer.toString());
 		e.addComponent(map);
 		
 		PositionC pos = new PositionC();

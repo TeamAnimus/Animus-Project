@@ -40,6 +40,8 @@ public class MovementS extends EntityProcessingSystem {
 			SpriteC sprite = spriteMap.get(e);
 			sprite.sprite.setPosition(position.x, position.y);
 		}
+		System.out.println("Movement system has beel called.");
+		
 
 	}
 }

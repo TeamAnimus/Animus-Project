@@ -7,7 +7,6 @@ import greenpumpkin.artemis.components.SpriteC;
 import greenpumpkin.artemis.components.VelocityC;
 import com.artemis.Entity;
 import com.artemis.World;
-import com.artemis.managers.GroupManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -44,11 +43,10 @@ public class PlayerFactory {
 		sprite.sprite.setTexture(texture);
 		sprite.sprite.setCenterX(position.x);
 		sprite.sprite.setCenterY(position.y);
+		System.out.println(sprite.bob);
 		e.addComponent(sprite);
 		
 		e.addComponent(new PlayerC());
-
-		world.getManager(GroupManager.class).add(e, "Ben");
 
 		return e;
 	}
