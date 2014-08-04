@@ -26,7 +26,6 @@ public class MovementS extends EntityProcessingSystem {
 	
 	@Override
 	protected void initialize() {
-		System.out.println("Movement is initialized");
 	}
 
 	@Override

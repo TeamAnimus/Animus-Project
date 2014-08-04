@@ -42,7 +42,6 @@ public class PlayerFactory {
 		sprite.sprite = new Sprite(texture);
 		sprite.sprite.setScale(1/16f);
 		sprite.sprite.setOrigin(0, 0);
-		System.out.println(sprite.bob);
 		e.addComponent(sprite);
 		
 		e.addComponent(new PlayerC());
