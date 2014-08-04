@@ -33,5 +33,4 @@ public class AnimusWorld extends World {
 		batch = new SpriteBatch();
 		batch.setProjectionMatrix(camera.combined);
 	}
-
 }

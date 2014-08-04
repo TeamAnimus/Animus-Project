@@ -50,9 +50,11 @@ public class ControllerInputS extends EntityProcessingSystem implements InputPro
 			 velocity.velX-=0.4;
 		 }
 		 
-		 if(right){
+		 else if(right){
 			 velocity.velX+=0.4;
 		 }
+		 
+		 else velocity.velX-=(velocity.velX/8);
 		 
 		 if(down){
 			 velocity.velY-=(velocity.velY/2);
@@ -60,11 +62,10 @@ public class ControllerInputS extends EntityProcessingSystem implements InputPro
 		 
 		 if(velocity.velY<-7.9)
 			 velocity.velY=-8;
-		 if(velocity.velX>8)
-			 velocity.velX=8;
-		 if(velocity.velX<-8)
-			 velocity.velX=-8;
-		 velocity.velX-=(velocity.velX/8);
+		 if(velocity.velX>4)
+			 velocity.velX=4;
+		 if(velocity.velX<-4)
+			 velocity.velX=-4;
 		 
 
 		 //System.out.println("Velocity of the x axis: " + velocity.velX);
