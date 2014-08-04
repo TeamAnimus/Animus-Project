@@ -19,7 +19,7 @@ public class MovementS extends EntityProcessingSystem {
 	@Mapper ComponentMapper<VelocityC> velMap;
 	@Mapper ComponentMapper<SpriteC> spriteMap;
 
-	@SuppressWarnings({"unchecked" })
+	@SuppressWarnings("unchecked")
 	public MovementS() {
 		super(Aspect.getAspectForAll(PositionC.class, VelocityC.class));
 	}
@@ -40,8 +40,7 @@ public class MovementS extends EntityProcessingSystem {
 			SpriteC sprite = spriteMap.get(e);
 			sprite.sprite.setPosition(position.x, position.y);
 		}
-		System.out.println("Movement system has beel called.");
 		
-
+		System.out.println("Movement system has been called.");
 	}
 }

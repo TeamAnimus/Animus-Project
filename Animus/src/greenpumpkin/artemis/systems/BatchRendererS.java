@@ -24,7 +24,6 @@ public class BatchRendererS extends EntitySystem {
 
 	protected void process(Entity e) {
 	    SpriteC sprite = spriteMap.get(e);
-		//AnimusWorld.batch.draw(sprite.sprite.getTexture(), sprite.sprite.getX(), sprite.sprite.getY());
 	    sprite.sprite.draw(AnimusWorld.batch);
 	    System.out.println("The player was processed.");
 	}
