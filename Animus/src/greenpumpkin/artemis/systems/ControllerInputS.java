@@ -2,7 +2,6 @@ package greenpumpkin.artemis.systems;
 
 import greenpumpkin.artemis.components.PlayerC;
 import greenpumpkin.artemis.components.VelocityC;
-
 import com.artemis.Aspect;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
@@ -18,6 +17,7 @@ public class ControllerInputS extends EntityProcessingSystem implements InputPro
 	private boolean up, down, left, right;
 	private float jumpTime;
 	
+	@SuppressWarnings("unchecked")
 	public ControllerInputS() {
 		super(Aspect.getAspectForAll(PlayerC.class));
 	}
@@ -48,6 +48,10 @@ public class ControllerInputS extends EntityProcessingSystem implements InputPro
 		 
 		 if(right){
 			 velocity.velX+=0.2;
+		 }
+		 
+		 if(down){
+			 velocity.velY-=(velocity.velY/2);
 		 }
 		 
 		 else {
