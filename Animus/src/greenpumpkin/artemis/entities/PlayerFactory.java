@@ -41,8 +41,8 @@ public class PlayerFactory {
 		SpriteC sprite = new SpriteC();
 		sprite.sprite = new Sprite();
 		sprite.sprite.setTexture(texture);
-		sprite.sprite.setCenterX(position.x);
-		sprite.sprite.setCenterY(position.y);
+		sprite.sprite.setOrigin(position.x, position.y);
+		sprite.sprite.setRegion(0, 0, texture.getWidth(), texture.getHeight());
 		System.out.println(sprite.bob);
 		e.addComponent(sprite);
 		

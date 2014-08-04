@@ -42,6 +42,10 @@ public class ControllerInputS extends EntityProcessingSystem implements InputPro
 			 velocity.velY = 2; //jump, will keep at jump velocity until frame 20 
 		 }
 		 
+		 else {
+			 velocity.velY-=0.2; //gravity
+		 }
+		 
 		 if(left){
 			 velocity.velX-=0.2;
 		 }
@@ -54,16 +58,13 @@ public class ControllerInputS extends EntityProcessingSystem implements InputPro
 			 velocity.velY-=(velocity.velY/2);
 		 }
 		 
-		 else {
-			 velocity.velY-=0.2; //gravity
-		 }
-		 
 		 if(velocity.velY<-7.9)
 			 velocity.velY=-8;
 		 if(velocity.velX>2)
 			 velocity.velX=2;
 		 if(velocity.velX<-2)
 			 velocity.velX=-2;
+		 
 
 		 //System.out.println("Velocity of the x axis: " + velocity.velX);
 		 //System.out.println("Velocity of the y axis: " + velocity.velY);
