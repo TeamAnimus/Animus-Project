@@ -51,8 +51,8 @@ public class TestWorld implements Screen {
 		//LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.8f, 0.1f, 0.1f, 1.0f),  AnimusWorld.lightDistance, 35f, 11f).addToWorld();
 		//the real list of lights will be created with a for loop where the numbers come from a JSON file, in a different system.
 
-		PlayerFactory.create(world, 10, 10).addToWorld();
-		world.addEntity(PlayerFactory.create(world, 12, 12));
+		//PlayerFactory.create(world, 10, 10).addToWorld();
+		world.addEntity(PlayerFactory.create(world, 2, 8));
 		
 		caveTheme.play();
 		caveTheme.setLooping(true);

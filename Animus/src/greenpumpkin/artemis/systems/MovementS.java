@@ -38,8 +38,8 @@ public class MovementS extends EntityProcessingSystem {
 		position.addX( velocity.velX * world.getDelta() );
 		position.addY( velocity.velY * world.getDelta() );
 		
-		if(position.y<2)
-			position.y=2;
+		if(position.y<0)
+			position.y=0;
 		
 		if(spriteMap.has(e)){
 			SpriteC sprite = spriteMap.get(e);

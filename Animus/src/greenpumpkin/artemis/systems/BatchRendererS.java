@@ -15,22 +15,18 @@ public class BatchRendererS extends EntitySystem {
 	@SuppressWarnings("unchecked")
 	public BatchRendererS() {
 		super(Aspect.getAspectForAll(SpriteC.class));
-		System.out.println("BatchRendererS was constructed.");
 	}
 	
 	protected void initialize() {
-		System.out.println("BatchRendererS was initialized.");
 	}
 
 	protected void process(Entity e) {
 	    SpriteC sprite = spriteMap.get(e);
 	    sprite.sprite.draw(AnimusWorld.batch);
-	    System.out.println("The player was processed." + AnimusWorld.batch.isDrawing());
 	}
 
 	@Override
 	protected void processEntities(ImmutableBag<Entity> entities) {
-		System.out.println("The player was found by the system.");
 		AnimusWorld.batch.setProjectionMatrix(AnimusWorld.camera.combined);
 		AnimusWorld.batch.begin();
 		for (int i = 0, s = entities.size(); s > i; i++) {

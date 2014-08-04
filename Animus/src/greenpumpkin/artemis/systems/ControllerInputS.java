@@ -31,27 +31,27 @@ public class ControllerInputS extends EntityProcessingSystem implements InputPro
 	protected void process(Entity e) {
 		VelocityC velocity = velMap.get(e);
 		
-		 if(jumpTime<91)
+		 if(jumpTime<42)
 			 jumpTime++;
 
-		 if(jumpTime>90 && up) {
+		 if(jumpTime>40 && up) {
 			 jumpTime=0;
 		 }
 		
 		 if(up && jumpTime<20) {
-			 velocity.velY = 2; //jump, will keep at jump velocity until frame 20 
+			 velocity.velY = 4; //jump, will keep at jump velocity until frame 20 
 		 }
 		 
 		 else {
-			 velocity.velY-=0.2; //gravity
+			 velocity.velY-=0.4; //gravity
 		 }
 		 
 		 if(left){
-			 velocity.velX-=0.2;
+			 velocity.velX-=0.4;
 		 }
 		 
 		 if(right){
-			 velocity.velX+=0.2;
+			 velocity.velX+=0.4;
 		 }
 		 
 		 if(down){
@@ -60,10 +60,11 @@ public class ControllerInputS extends EntityProcessingSystem implements InputPro
 		 
 		 if(velocity.velY<-7.9)
 			 velocity.velY=-8;
-		 if(velocity.velX>2)
-			 velocity.velX=2;
-		 if(velocity.velX<-2)
-			 velocity.velX=-2;
+		 if(velocity.velX>8)
+			 velocity.velX=8;
+		 if(velocity.velX<-8)
+			 velocity.velX=-8;
+		 velocity.velX-=(velocity.velX/8);
 		 
 
 		 //System.out.println("Velocity of the x axis: " + velocity.velX);
