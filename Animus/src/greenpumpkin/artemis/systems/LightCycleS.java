@@ -29,9 +29,6 @@ public class LightCycleS extends IntervalEntityProcessingSystem {
 		cycle.currTime+=1/30f;
 		
 		if(cycle.currTime>cycle.time){
-			System.out.println("dist: " + newLight.light.getDistance());
-			System.out.println("min: " + cycle.minDist);
-			System.out.println("difference: " + (newLight.light.getDistance() - (cycle.minDist)));
 			cycle.currTime = 0;
 			newLight.light.setDistance(cycle.minDist);
 		}
