@@ -16,7 +16,6 @@ public class TiledMapFactory {
 		
 		TiledC map = new TiledC();
 		map.tiledMap= new TmxMapLoader().load(mapFile);
-		System.out.println(map.tiledMap.toString());
 		map.renderer = new OrthogonalTiledMapRenderer(map.tiledMap, mapSize);
 		map.renderer.setMap(map.tiledMap);
 		map.renderer.setView(camera);

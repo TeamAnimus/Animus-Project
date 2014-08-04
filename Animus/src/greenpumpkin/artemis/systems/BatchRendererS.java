@@ -15,6 +15,11 @@ public class BatchRendererS extends EntitySystem {
 	@SuppressWarnings("unchecked")
 	public BatchRendererS() {
 		super(Aspect.getAspectForAll(SpriteC.class));
+		System.out.println("ech1");
+	}
+	
+	protected void initialize() {
+		System.out.println("ech2");
 	}
 
 	protected void process(Entity e) {
@@ -22,6 +27,7 @@ public class BatchRendererS extends EntitySystem {
 		//AnimusWorld.batch.draw(sprite.sprite.getTexture(), sprite.sprite.getX(), sprite.sprite.getY());
 	    sprite.sprite.draw(AnimusWorld.batch);
 	    System.out.println("process is called.");
+	    System.out.println("ech3");
 	}
 
 	@Override
@@ -33,6 +39,7 @@ public class BatchRendererS extends EntitySystem {
 			System.out.println(entities.get(i).toString());
 		}
 		AnimusWorld.batch.end();
+		System.out.println("ech4");
 	}
 
 	@Override
