@@ -38,6 +38,7 @@ public class TestWorld implements Screen {
 		//world.setSystem(new LightRandomizerS());
 		world.setSystem(new LightCycleS());
 		world.setSystem(new HealthS());
+		world.setSystem(new ControllerInputS());
 		world.initialize();
 
 		//These lights will not be here. They are just for a test.
