@@ -31,6 +31,7 @@ public class TestWorld implements Screen {
 
 		AnimusWorld.initCamera();
 		AnimusWorld.initRayHandler();
+		AnimusWorld.initBatch();
 
 		world.setManager(new GroupManager());
 		world.setSystem(new TiledS());
@@ -38,6 +39,7 @@ public class TestWorld implements Screen {
 		//world.setSystem(new LightRandomizerS());
 		world.setSystem(new LightCycleS());
 		world.setSystem(new HealthS());
+		world.setSystem(new BatchRendererS());
 		world.setSystem(new ControllerInputS());
 		world.initialize();
 
@@ -48,7 +50,7 @@ public class TestWorld implements Screen {
 		//LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.8f, 0.1f, 0.1f, 1.0f),  AnimusWorld.lightDistance, 35f, 11f).addToWorld();
 		//the real list of lights will be created with a for loop where the numbers come from a JSON file, in a different system.
 
-		PlayerFactory.create(world, 0, 0).addToWorld();
+		PlayerFactory.create(world, 10, 10).addToWorld();
 		
 		caveTheme.play();
 		caveTheme.setLooping(true);
@@ -72,6 +74,7 @@ public class TestWorld implements Screen {
 	@Override
 	public void resize(int width, int height) {
 		stage.getViewport().setCamera(new VirtualResolution(Animus.WIDTH, Animus.HEIGHT));
+		 AnimusWorld.batch.getProjectionMatrix().setToOrtho2D(0, 0, width, height);
 	}
 
 	@Override

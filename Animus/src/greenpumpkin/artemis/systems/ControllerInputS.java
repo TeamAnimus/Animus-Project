@@ -65,8 +65,8 @@ public class ControllerInputS extends EntityProcessingSystem implements InputPro
 		 if(velocity.velX<-2)
 			 velocity.velX=-2;
 
-		 System.out.println("Velocity of the x axis: " + velocity.velX);
-		 System.out.println("Velocity of the y axis: " + velocity.velY);
+		 //System.out.println("Velocity of the x axis: " + velocity.velX);
+		 //System.out.println("Velocity of the y axis: " + velocity.velY);
 	}
 	
 	@Override
