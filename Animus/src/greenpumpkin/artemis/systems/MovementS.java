@@ -17,7 +17,6 @@ import com.artemis.systems.EntityProcessingSystem;
 public class MovementS extends EntityProcessingSystem {
 	@Mapper ComponentMapper<PositionC> posMap;
 	@Mapper ComponentMapper<VelocityC> velMap;
-	@Mapper ComponentMapper<SpriteC> spriteMap;
 
 	@SuppressWarnings("unchecked")
 	public MovementS() {
@@ -39,11 +38,6 @@ public class MovementS extends EntityProcessingSystem {
 		
 		if(position.y<0)
 			position.y=0;
-		
-		if(spriteMap.has(e)){
-			SpriteC sprite = spriteMap.get(e);
-			sprite.sprite.setPosition(position.x, position.y);
-		}
 	}
 	
 	@Override

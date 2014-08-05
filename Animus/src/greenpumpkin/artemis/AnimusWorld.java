@@ -13,6 +13,12 @@ public class AnimusWorld extends World {
 	public static OrthographicCamera camera;
 	public static SpriteBatch batch;
 	
+	public static void initCamera() {
+		camera = new OrthographicCamera(32,18);
+		camera.position.set(16, 9, 0);
+		camera.update(true);
+	}
+	
 	public static void initRayHandler() {
 		RayHandler.useDiffuseLight(true);
 		rayHandler = new RayHandler(null);
@@ -21,12 +27,6 @@ public class AnimusWorld extends World {
 		rayHandler.setCulling(true);
 		rayHandler.setBlurNum(1);
 		rayHandler.setShadows(true); 
-	}
-	
-	public static void initCamera() {
-		camera = new OrthographicCamera(32,18);
-		camera.position.set(16, 9, 0);
-		camera.update(true);
 	}
 	
 	public static void initBatch() {
