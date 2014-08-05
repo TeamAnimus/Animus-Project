@@ -1,7 +1,6 @@
 package greenpumpkin.artemis.systems;
 
 import greenpumpkin.artemis.components.PositionC;
-import greenpumpkin.artemis.components.SpriteC;
 import greenpumpkin.artemis.components.VelocityC;
 import com.artemis.Aspect;
 import com.artemis.ComponentMapper;

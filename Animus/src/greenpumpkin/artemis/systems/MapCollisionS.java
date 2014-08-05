@@ -1,5 +1,6 @@
 package greenpumpkin.artemis.systems;
 
+import greenpumpkin.artemis.AnimusWorld;
 import greenpumpkin.artemis.components.PositionC;
 import greenpumpkin.artemis.components.SpriteC;
 import greenpumpkin.artemis.components.VelocityC;
@@ -21,6 +22,10 @@ public class MapCollisionS extends EntityProcessingSystem {
 	@SuppressWarnings({ "unchecked" })
 	public MapCollisionS() {
 		super(Aspect.getAspectForAll(VelocityC.class, SpriteC.class));
+	}
+	
+	protected void initialize() {
+		//collisionLayer = (TiledMapTileLayer) AnimusWorld.map.getLayers().get(0);
 	}
 
 	@Override

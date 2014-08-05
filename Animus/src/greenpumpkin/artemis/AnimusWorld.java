@@ -3,6 +3,7 @@ package greenpumpkin.artemis;
 import com.artemis.World;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.tiled.TiledMap;
 
 import box2dLight.RayHandler;
 
@@ -12,6 +13,8 @@ public class AnimusWorld extends World {
 	public static RayHandler rayHandler; //the main object of light2d, heavily important
 	public static OrthographicCamera camera;
 	public static SpriteBatch batch;
+	public TiledMap foregroundMap;
+	public TiledMap backgroundMap;
 	
 	public static void initCamera() {
 		camera = new OrthographicCamera(32,18);
