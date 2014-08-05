@@ -25,13 +25,16 @@ public class TestWorld implements Screen {
 	
 	private AnimusWorld world;
 	
+	int bob = 0;
+	
 	@Override
 	public void show() {
 		world = new AnimusWorld();
 
-		AnimusWorld.initCamera();
-		AnimusWorld.initRayHandler();
-		AnimusWorld.initBatch();
+		AnimusWorld.init();
+		AnimusWorld.setForegroundMap("TestMap.tmx");
+		AnimusWorld.setBackgroundMap("TestMapBack.tmx");
+		
 
 		world.setManager(new GroupManager());
 		world.setSystem(new ControllerInputS());
@@ -67,6 +70,11 @@ public class TestWorld implements Screen {
 		AnimusWorld.camera.update();
 		world.setDelta(delta);
 		world.process();
+		
+		//changes map midscreen. really silly.
+		if(bob>60 && bob<62)
+			AnimusWorld.setForegroundMap("TestMapBack.tmx");
+		bob++;
 	}
 
 	@Override

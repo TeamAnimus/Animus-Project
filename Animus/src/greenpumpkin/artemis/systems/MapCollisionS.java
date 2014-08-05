@@ -1,36 +1,28 @@
 package greenpumpkin.artemis.systems;
 
-import greenpumpkin.artemis.AnimusWorld;
 import greenpumpkin.artemis.components.PositionC;
 import greenpumpkin.artemis.components.SpriteC;
 import greenpumpkin.artemis.components.VelocityC;
-
 import com.artemis.Aspect;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.artemis.annotations.Mapper;
 import com.artemis.systems.EntityProcessingSystem;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+//import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 
 public class MapCollisionS extends EntityProcessingSystem {
 	@Mapper ComponentMapper<PositionC> posMap;
 	@Mapper ComponentMapper<VelocityC> velMap;
 	@Mapper ComponentMapper<SpriteC> spriteMap;
 	
-	private TiledMapTileLayer collisionLayer;
-
 	@SuppressWarnings({ "unchecked" })
 	public MapCollisionS() {
 		super(Aspect.getAspectForAll(VelocityC.class, SpriteC.class));
 	}
-	
-	protected void initialize() {
-		//collisionLayer = (TiledMapTileLayer) AnimusWorld.map.getLayers().get(0);
-	}
 
 	@Override
 	protected void process(Entity e) {
-		PositionC position = posMap.get(e);
+		//PositionC position = posMap.get(e);
 		VelocityC velocity = velMap.get(e);
 		SpriteC sprite = spriteMap.get(e);
 		

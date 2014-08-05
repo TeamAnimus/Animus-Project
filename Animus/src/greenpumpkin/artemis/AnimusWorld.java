@@ -4,6 +4,9 @@ import com.artemis.World;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 import box2dLight.RayHandler;
 
@@ -13,16 +16,26 @@ public class AnimusWorld extends World {
 	public static RayHandler rayHandler; //the main object of light2d, heavily important
 	public static OrthographicCamera camera;
 	public static SpriteBatch batch;
-	public TiledMap foregroundMap;
-	public TiledMap backgroundMap;
+	public static TiledMap foregroundMap;
+	public static TiledMap backgroundMap;
+	public static OrthogonalTiledMapRenderer frontRenderer;
+	public static OrthogonalTiledMapRenderer backRenderer;
+	public static TiledMapTileLayer collisionLayer;
+	private static float mapSize = 1/16f;
 	
-	public static void initCamera() {
+	public static void init() {
+		initCamera();
+		initRayHandler();
+		initBatch();	
+	}
+	
+	private static void initCamera() {
 		camera = new OrthographicCamera(32,18);
 		camera.position.set(16, 9, 0);
 		camera.update(true);
 	}
 	
-	public static void initRayHandler() {
+	private static void initRayHandler() {
 		RayHandler.useDiffuseLight(true);
 		rayHandler = new RayHandler(null);
 		rayHandler.setCombinedMatrix(camera.combined);
@@ -32,8 +45,20 @@ public class AnimusWorld extends World {
 		rayHandler.setShadows(true); 
 	}
 	
-	public static void initBatch() {
+	private static void initBatch() {
 		batch = new SpriteBatch();
 		batch.setProjectionMatrix(camera.combined);
+	}
+	
+	public static void setForegroundMap(String mapFile) {
+		foregroundMap = new TmxMapLoader().load(mapFile);
+		frontRenderer = new OrthogonalTiledMapRenderer(AnimusWorld.foregroundMap, mapSize);
+		frontRenderer.setView(camera);
+		collisionLayer = (TiledMapTileLayer) foregroundMap.getLayers().get(0);
+	}
+	public static void setBackgroundMap(String mapFile) {
+		backgroundMap = new TmxMapLoader().load(mapFile);
+		backRenderer = new OrthogonalTiledMapRenderer(AnimusWorld.backgroundMap, mapSize);
+		backRenderer.setView(camera);
 	}
 }
