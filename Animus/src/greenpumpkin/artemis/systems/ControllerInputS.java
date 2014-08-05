@@ -39,7 +39,7 @@ public class ControllerInputS extends EntityProcessingSystem implements InputPro
 		 }
 		
 		 if(up && jumpTime<20) {
-			 velocity.velY = 6; //jump, will keep at jump velocity until frame 20 
+			 velocity.velY = 8; //jump, will keep at jump velocity until frame 20 
 		 }
 		 
 		 else {
@@ -47,11 +47,11 @@ public class ControllerInputS extends EntityProcessingSystem implements InputPro
 		 }
 		 
 		 if(left){
-			 velocity.velX-=0.4;
+			 velocity.velX-=0.5;
 		 }
 		 
 		 else if(right){
-			 velocity.velX+=0.4;
+			 velocity.velX+=0.5;
 		 }
 		 
 		 else velocity.velX-=(velocity.velX/8);
@@ -60,8 +60,8 @@ public class ControllerInputS extends EntityProcessingSystem implements InputPro
 			 velocity.velY-=(velocity.velY/2);
 		 }
 		 
-		 if(velocity.velY<-7.9)
-			 velocity.velY=-8;
+		 if(velocity.velY<-15)
+			 velocity.velY=-15;
 		 if(velocity.velX>4)
 			 velocity.velX=4;
 		 if(velocity.velX<-4)
