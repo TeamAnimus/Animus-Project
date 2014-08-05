@@ -34,16 +34,16 @@ public class ControllerInputS extends EntityProcessingSystem implements InputPro
 		 if(jumpTime<42)
 			 jumpTime++;
 
-		 if(jumpTime>40 && up) {
+		 if((jumpTime>40 || velocity.velY==0) && up) {
 			 jumpTime=0;
 		 }
 		
 		 if(up && jumpTime<20) {
-			 velocity.velY = 4; //jump, will keep at jump velocity until frame 20 
+			 velocity.velY = 6; //jump, will keep at jump velocity until frame 20 
 		 }
 		 
 		 else {
-			 velocity.velY-=0.4; //gravity
+			 velocity.velY-=0.6; //gravity
 		 }
 		 
 		 if(left){
