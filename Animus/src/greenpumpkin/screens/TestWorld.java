@@ -29,13 +29,11 @@ public class TestWorld implements Screen {
 		world = new AnimusWorld();
 
 		AnimusWorld.init();
-		AnimusWorld.setForegroundMap("TestMap.tmx");
-		AnimusWorld.setBackgroundMap("TestMapBack.tmx");
+		AnimusWorld.setMaps("TestMap.tmx", "TestMapBack.tmx");
 
 		world.setManager(new GroupManager());
 		world.setSystem(new ControllerInputS());
 		world.setSystem(new TiledS());
-		//world.setSystem(new LightRandomizerS());
 		world.setSystem(new LightCycleS());
 		world.setSystem(new HealthS());
 		world.setSystem(new MapCollisionS());

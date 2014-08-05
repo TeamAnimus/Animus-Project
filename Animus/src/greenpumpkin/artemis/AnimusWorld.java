@@ -45,13 +45,14 @@ public class AnimusWorld extends World {
 		rayHandler.setShadows(true); 
 	}
 	
-	public static void flushRayHandler() {
-		rayHandler.removeAll();
-	}
-	
 	private static void initBatch() {
 		batch = new SpriteBatch();
 		batch.setProjectionMatrix(camera.combined);
+	}
+	
+	public static void setMaps(String frontMap, String backMap) {
+		setForegroundMap(frontMap);
+		setBackgroundMap(backMap);
 	}
 	
 	public static void setForegroundMap(String mapFile) {
@@ -64,5 +65,9 @@ public class AnimusWorld extends World {
 		backgroundMap = new TmxMapLoader().load(mapFile);
 		backRenderer = new OrthogonalTiledMapRenderer(AnimusWorld.backgroundMap, mapSize);
 		backRenderer.setView(camera);
+	}
+	
+	public static void flushRayHandler() {
+		rayHandler.removeAll();
 	}
 }
