@@ -39,6 +39,7 @@ public class TestWorld implements Screen {
 		//world.setSystem(new LightRandomizerS());
 		world.setSystem(new LightCycleS());
 		world.setSystem(new HealthS());
+		world.setSystem(new MapCollisionS());
 		world.setSystem(new MovementS());
 		world.setSystem(new BatchRendererS());
 		world.setSystem(new LightS());
