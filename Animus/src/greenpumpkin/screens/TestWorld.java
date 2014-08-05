@@ -20,11 +20,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class TestWorld implements Screen {
 	private Stage stage = new Stage();
-	
 	Music caveTheme = Gdx.audio.newMusic(Gdx.files.internal("music/thisIsHome.mp3"));
-	
 	private AnimusWorld world;
-	
 	int bob = 0;
 	
 	@Override
@@ -34,7 +31,6 @@ public class TestWorld implements Screen {
 		AnimusWorld.init();
 		AnimusWorld.setForegroundMap("TestMap.tmx");
 		AnimusWorld.setBackgroundMap("TestMapBack.tmx");
-		
 
 		world.setManager(new GroupManager());
 		world.setSystem(new ControllerInputS());
@@ -49,13 +45,10 @@ public class TestWorld implements Screen {
 		world.initialize();
 
 		//These lights will not be here. They are just for a test.
-		LightFactory.createCyclePoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.0f, 0.1f, 0.8f, 1.0f), AnimusWorld.lightDistance*1.5f, 6f, 1.0f,1f, 30f/64f).addToWorld();
-		LightFactory.createCyclePoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(1.0f, 1.0f, 0.9f, 1.0f), AnimusWorld.lightDistance, 35f, 11f, 7.7f, 1.875f*4f).addToWorld();
-		//LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.1f, 0.8f, 0.1f, 1.0f),  AnimusWorld.lightDistance, 35f, 11f).addToWorld();
-		//LightFactory.createPoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.8f, 0.1f, 0.1f, 1.0f),  AnimusWorld.lightDistance, 35f, 11f).addToWorld();
+		world.addEntity(LightFactory.createCyclePoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(0.0f, 0.1f, 0.8f, 1.0f), AnimusWorld.lightDistance*1.5f, 6f, 1.0f,1f, 30f/64f));
+		world.addEntity(LightFactory.createCyclePoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(1.0f, 1.0f, 0.9f, 1.0f), AnimusWorld.lightDistance, 35f, 11f, 7.7f, 1.875f*4f));
 		//the real list of lights will be created with a for loop where the numbers come from a JSON file, in a different system.
-
-		//PlayerFactory.create(world, 10, 10).addToWorld();
+		
 		world.addEntity(PlayerFactory.create(world, 2, 8));
 		
 		caveTheme.play();
@@ -72,7 +65,7 @@ public class TestWorld implements Screen {
 		world.process();
 		
 		//changes map midscreen. really silly.
-		if(bob>60 && bob<62)
+		if(bob==280)
 			AnimusWorld.setForegroundMap("TestMapBack.tmx");
 		bob++;
 	}

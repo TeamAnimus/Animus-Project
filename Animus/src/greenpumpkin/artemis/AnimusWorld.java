@@ -11,13 +11,13 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import box2dLight.RayHandler;
 
 public class AnimusWorld extends World {
-	public static final int numRays = 32; //how many rays are emitted for shadow casting
+	private static TiledMap foregroundMap;
+	private static TiledMap backgroundMap;
+	public static final int numRays = 16; //how many rays are emitted for shadow casting
 	public static final float lightDistance = 12f; // distance light goes
 	public static RayHandler rayHandler; //the main object of light2d, heavily important
 	public static OrthographicCamera camera;
 	public static SpriteBatch batch;
-	public static TiledMap foregroundMap;
-	public static TiledMap backgroundMap;
 	public static OrthogonalTiledMapRenderer frontRenderer;
 	public static OrthogonalTiledMapRenderer backRenderer;
 	public static TiledMapTileLayer collisionLayer;
@@ -43,6 +43,10 @@ public class AnimusWorld extends World {
 		rayHandler.setCulling(true);
 		rayHandler.setBlurNum(1);
 		rayHandler.setShadows(true); 
+	}
+	
+	public static void flushRayHandler() {
+		rayHandler.removeAll();
 	}
 	
 	private static void initBatch() {

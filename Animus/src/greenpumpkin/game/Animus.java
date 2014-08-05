@@ -12,7 +12,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
 public class Animus extends Game {
 	public static final String TITLE="Game Project";
-	public static final int WIDTH=960,HEIGHT=640;
+	public static final int WIDTH=1024,HEIGHT=576;
 	public static final int[] fps = new int[]{30,60,120,144};
 
 	@Override
@@ -23,8 +23,8 @@ public class Animus extends Game {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
 		cfg.title = "Animus";
-		cfg.width = 960;
-		cfg.height = 640;
+		cfg.width = WIDTH;
+		cfg.height = HEIGHT;
 		cfg.foregroundFPS=fps[1];
 		cfg.backgroundFPS=fps[1];
 		new LwjglApplication(new Animus(), cfg);
