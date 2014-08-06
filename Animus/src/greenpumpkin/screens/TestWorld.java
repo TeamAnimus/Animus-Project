@@ -47,7 +47,7 @@ public class TestWorld implements Screen {
 		world.addEntity(LightFactory.createCyclePoint(world, AnimusWorld.rayHandler,  AnimusWorld.numRays, new Color(1.0f, 1.0f, 0.9f, 1.0f), AnimusWorld.lightDistance, 35f, 11f, 7.7f, 1.875f*4f));
 		//the real list of lights will be created with a for loop where the numbers come from a JSON file, in a different system.
 		
-		world.addEntity(PlayerFactory.create(world, 2, 8));
+		world.addEntity(PlayerFactory.create(world, 12, 4));
 		
 		caveTheme.play();
 		caveTheme.setLooping(true);
@@ -63,7 +63,7 @@ public class TestWorld implements Screen {
 		world.process();
 		
 		//changes map midscreen. really silly.
-		if(bob==280)
+		if(bob==600)
 			AnimusWorld.setForegroundMap("TestMapBack.tmx");
 		bob++;
 	}
