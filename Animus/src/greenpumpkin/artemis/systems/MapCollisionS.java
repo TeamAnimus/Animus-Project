@@ -26,9 +26,7 @@ public class MapCollisionS extends EntityProcessingSystem {
 		VelocityC velocity = velMap.get(e);
 		SpriteC sprite = spriteMap.get(e);
 		
-		float step = sprite.sprite.getScaleY();
-		System.out.println(step);
-		boolean collisionX = false, collisionY = false;
+		boolean diagonalLeft = false, diagonalRight = false, collisionX = false, collisionY = false;
 		if(velocity.velX < 0) // going left
 			collisionX = collidesLeft();
 		else if(velocity.velX > 0) // going right
