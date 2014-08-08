@@ -58,7 +58,7 @@ public class AnimusWorld extends World {
 		foregroundMap = new TmxMapLoader().load(mapFile);
 		frontRenderer = new OrthogonalTiledMapRenderer(AnimusWorld.foregroundMap, mapSize);
 		frontRenderer.setView(camera);
-		collisionLayer = (TiledMapTileLayer) foregroundMap.getLayers().get(0);
+		collisionLayer = (TiledMapTileLayer) foregroundMap.getLayers().get(1);
 	}
 	public static void setBackgroundMap(String mapFile) {
 		backgroundMap = new TmxMapLoader().load(mapFile);
