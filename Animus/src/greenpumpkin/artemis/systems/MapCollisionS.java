@@ -54,23 +54,31 @@ public class MapCollisionS extends EntityProcessingSystem {
 	private boolean collidesLeft(SpriteC sprite) {
 		if(isCellBlocked(sprite.sprite.getX(), sprite.sprite.getY() + 1))
 			return true;
+		if(isCellBlocked(sprite.sprite.getX(), sprite.sprite.getY() + 0.2f))
+			return true;
 		return false;
 	}
 	
 	private boolean collidesRight(SpriteC sprite) {
 		if(isCellBlocked(sprite.sprite.getX() + 1, sprite.sprite.getY() + 1))
 			return true;
+		if(isCellBlocked(sprite.sprite.getX() + 1, sprite.sprite.getY()+0.2f))
+			return true;
 		return false;
 	}
 
 	private boolean collidesBottom(SpriteC sprite) {
-		if(isCellBlocked(sprite.sprite.getX(), sprite.sprite.getY()))
+		if(isCellBlocked(sprite.sprite.getX()+0.1f, sprite.sprite.getY()))
+			return true;
+		if(isCellBlocked(sprite.sprite.getX()+0.9f, sprite.sprite.getY()))
 			return true;
 		return false;
 	}
 	
 	private boolean collidesTop(SpriteC sprite) {
-		if(isCellBlocked(sprite.sprite.getX(), sprite.sprite.getY() + 2))
+		if(isCellBlocked(sprite.sprite.getX()+0.1f, sprite.sprite.getY() + 2))
+			return true;
+		if(isCellBlocked(sprite.sprite.getX()+0.9f, sprite.sprite.getY() + 2))
 			return true;
 		return false;
 	}

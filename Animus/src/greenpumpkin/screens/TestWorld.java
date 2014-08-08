@@ -22,7 +22,6 @@ public class TestWorld implements Screen {
 	private Stage stage = new Stage();
 	Music caveTheme = Gdx.audio.newMusic(Gdx.files.internal("music/thisIsHome.mp3"));
 	private AnimusWorld world;
-	int bob = 0;
 	
 	@Override
 	public void show() {
@@ -61,11 +60,6 @@ public class TestWorld implements Screen {
 		AnimusWorld.camera.update();
 		world.setDelta(delta);
 		world.process();
-		
-		//changes map midscreen. really silly.
-		if(bob==600)
-			AnimusWorld.setForegroundMap("TestMapBack.tmx");
-		bob++;
 	}
 
 	@Override
