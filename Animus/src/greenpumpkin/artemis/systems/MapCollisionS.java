@@ -29,71 +29,95 @@ public class MapCollisionS extends EntityProcessingSystem {
 		VelocityC velocity = velMap.get(e);
 		SpriteC sprite = spriteMap.get(e);
 		
-		boolean diagonalLeft = false, diagonalRight = false, collisionX = false, collisionY = false;
-		if(velocity.velX < 0) // going left
-			collisionX = collidesLeft(sprite);
-		else if(velocity.velX > 0) // going right
-			collisionX = collidesRight(sprite);
-		if(velocity.velY < 0) // going down
-			collisionY = collidesBottom(sprite);
-		else if(velocity.velY > 0) // going up
-			collisionY = collidesTop(sprite);
+		boolean water = false, diagonalLeft = false, diagonalRight = false, collisionX = false, collisionY = false;
 		
+		//THESE ALL CHECK FOR COLLISIONS
+		water = collidesWater(sprite, "water");
+		if(velocity.velY < 0) { // going down, checks for diagonals on bottom
+			diagonalLeft = collidesDiagonal(sprite, "diagonalLeft");
+			diagonalRight = collidesDiagonal(sprite, "diagonalRight");
+			if(!diagonalLeft || !diagonalRight)
+			collisionY = collidesBottom(sprite, "blocked");
+		}
+		else if(velocity.velY > 0) // going up
+			collisionY = collidesTop(sprite, "blocked");
+		if(velocity.velX < 0) // going left
+			collisionX = collidesLeft(sprite, "blocked");
+		else if(velocity.velX > 0) // going right
+			collisionX = collidesRight(sprite, "blocked");
+		
+		//THESE DO THE VELOCITY MANIPULATION AFTER THE FACT.
 		if(collisionX) {
 			velocity.velX = 0;
 		}
-		
-		if(collisionY) {
-			velocity.velY = 0;
-			System.out.println("yep.");
+		if(diagonalLeft && -((position.x+0.5f)%1.0f)>=(position.y%1.0f))
+			velocity.velY=velocity.velX;
+		else if(diagonalRight && ((position.x+0.5f)%1.0f)>=((position.y)%1.0f)){
+			velocity.velY=velocity.velX;
+			System.out.println(((position.x+0.5f)%1.0f) + " and " + ((position.y)%1.0f));
 		}
-		else
-			System.out.println("nope.");
+		else if(collisionY) {
+			velocity.velY = 0;
+			position.y = Math.round(position.y);
+		}
+		if(water){
+			velocity.velY -= (velocity.velY/6f - 0.4f);
+			velocity.velX -= (velocity.velX/6f);
+		}
 	}
 
-	private boolean collidesLeft(SpriteC sprite) {
-		if(isCellBlocked(sprite.sprite.getX(), sprite.sprite.getY() + 1))
+	private boolean collidesLeft(SpriteC sprite, String id) {
+		if(isCellBlocked(sprite.sprite.getX(), sprite.sprite.getY() + 1, id))
 			return true;
-		if(isCellBlocked(sprite.sprite.getX(), sprite.sprite.getY() + 0.2f))
+		if(isCellBlocked(sprite.sprite.getX(), sprite.sprite.getY() + 0.4f, id))
 			return true;
 		return false;
 	}
 	
-	private boolean collidesRight(SpriteC sprite) {
-		if(isCellBlocked(sprite.sprite.getX() + 1, sprite.sprite.getY() + 1))
+	private boolean collidesRight(SpriteC sprite, String id) {
+		if(isCellBlocked(sprite.sprite.getX() + 1, sprite.sprite.getY() + 1, id))
 			return true;
-		if(isCellBlocked(sprite.sprite.getX() + 1, sprite.sprite.getY()+0.2f))
+		if(isCellBlocked(sprite.sprite.getX() + 1, sprite.sprite.getY()+0.4f, id))
 			return true;
 		return false;
 	}
 
-	private boolean collidesBottom(SpriteC sprite) {
-		if(isCellBlocked(sprite.sprite.getX()+0.1f, sprite.sprite.getY()))
+	private boolean collidesBottom(SpriteC sprite, String id) {
+		if(isCellBlocked(sprite.sprite.getX()+0.1f, sprite.sprite.getY(), id))
 			return true;
-		if(isCellBlocked(sprite.sprite.getX()+0.9f, sprite.sprite.getY()))
+		if(isCellBlocked(sprite.sprite.getX()+0.9f, sprite.sprite.getY(), id))
+			return true;
+		return false;
+	}
+
+	private boolean collidesDiagonal(SpriteC sprite, String id) {
+		if(isCellBlocked(sprite.sprite.getX()+0.5f, sprite.sprite.getY(), id))
 			return true;
 		return false;
 	}
 	
-	private boolean collidesTop(SpriteC sprite) {
-		if(isCellBlocked(sprite.sprite.getX()+0.1f, sprite.sprite.getY() + 2))
+	private boolean collidesTop(SpriteC sprite, String id) {
+		if(isCellBlocked(sprite.sprite.getX()+0.1f, sprite.sprite.getY() + 2, id))
 			return true;
-		if(isCellBlocked(sprite.sprite.getX()+0.9f, sprite.sprite.getY() + 2))
+		if(isCellBlocked(sprite.sprite.getX()+0.9f, sprite.sprite.getY() + 2, id))
 			return true;
 		return false;
 	}
 	
-	private boolean isCellBlocked(float x, float y) {
+	private boolean collidesWater(SpriteC sprite, String id) {
+		if(isCellBlocked(sprite.sprite.getX()+0.5f, sprite.sprite.getY(), id))
+			return true;
+		return false;
+	}
+	
+	private boolean isCellBlocked(float x, float y, String id) {
 		System.out.println("check.");
 		Boolean blocked = false;
 		Cell cell = AnimusWorld.collisionLayer.getCell((int) (x), (int) (y));
 		if(cell != null){
-			System.out.println("1");
 			if(cell.getTile() != null){
-				System.out.println("2");
-				if(cell.getTile().getProperties().containsKey("blocked")){
+				if(cell.getTile().getProperties().containsKey(id)){
 					blocked = true;
-					System.out.println("3");
 				}
 			}
 		}
