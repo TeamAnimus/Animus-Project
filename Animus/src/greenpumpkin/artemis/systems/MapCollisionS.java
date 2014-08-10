@@ -49,10 +49,17 @@ public class MapCollisionS extends IntervalEntityProcessingSystem {
 		if(collisionX) {
 			velocity.velX = 0;
 		}
-		if(diagonalLeft && -((position.x+0.5f)%1.0f)>=(position.y%1f)){
-			velocity.velY=velocity.velX;
+		if(diagonalLeft && (position.y%1f < (1-((position.x+0.5f)%1.0f)))) {
+			velocity.velY=-velocity.velX*1.3f;
+			float newPosition=(float) (Math.ceil(position.y))-((position.x+0.5f)%1f);
+			if((position.x+0.5f)%1f > 0.85f)
+				newPosition=(float) (Math.ceil(position.y-0.1f))-((position.x+0.5f)%1f);
+				//new y is old y converted to int, plus halfway point of sprite's x, modulus 1
+				//presents problem of being called too early.
+			if(position.y>=newPosition)
+				position.y=newPosition;
 		}
-		else if(diagonalRight && ((position.x+0.5f)%1f>=position.y%1f) ){
+		else if(diagonalRight && (position.y%1f < (position.x+0.5f)%1f)) {
 			velocity.velY=velocity.velX*1.3f;
 			float newPosition=(float) (Math.floor(position.y))+((position.x+0.5f)%1f);
 			if((position.x+0.5f)%1f > 0.85f)
@@ -61,7 +68,6 @@ public class MapCollisionS extends IntervalEntityProcessingSystem {
 				//presents problem of being called too early.
 			if(position.y>=newPosition)
 				position.y=newPosition;
-			System.out.println(((position.x+0.5f)%1.0f) + " and " + ((position.y)%1.0f));
 		}
 		else if(collisionY) {
 			velocity.velY = 0;
