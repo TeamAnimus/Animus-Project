@@ -57,7 +57,8 @@ public class MapCollisionS extends EntityProcessingSystem {
 			float newPosition=(float) (Math.floor(position.y+0.02f))+((position.x+0.5f)%1f);;
 			if((position.x+0.5f)%1f > 0.5f)
 				newPosition =(float) (Math.floor(position.y-0.02f))+((position.x+0.5f)%1f);
-			position.y=newPosition;
+            if((position.x+0.51f)%1f>=position.y%1f)
+                position.y=newPosition;
 			System.out.println(((position.x+0.5f)%1.0f) + " and " + ((position.y)%1.0f));
 		}
 		else if(collisionY) {
