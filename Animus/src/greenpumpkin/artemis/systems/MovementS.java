@@ -6,20 +6,20 @@ import com.artemis.Aspect;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.artemis.annotations.Mapper;
-import com.artemis.systems.EntityProcessingSystem;
+import com.artemis.systems.IntervalEntityProcessingSystem;
 
 ////////////////////////////////////////////////////////////
 //This is the Artemis-based System for Movement. This///////
 //is used for anything on the map that physically moves.////
 ////////////////////////////////////////////////////////////
 
-public class MovementS extends EntityProcessingSystem {
+public class MovementS extends IntervalEntityProcessingSystem {
 	@Mapper ComponentMapper<PositionC> posMap;
 	@Mapper ComponentMapper<VelocityC> velMap;
 
 	@SuppressWarnings("unchecked")
 	public MovementS() {
-		super(Aspect.getAspectForAll(PositionC.class, VelocityC.class));
+		super(Aspect.getAspectForAll(PositionC.class, VelocityC.class), 1/60f);
 	}
 	
 	@Override

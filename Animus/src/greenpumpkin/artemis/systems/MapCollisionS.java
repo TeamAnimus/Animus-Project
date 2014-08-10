@@ -8,11 +8,10 @@ import com.artemis.Aspect;
 import com.artemis.ComponentMapper;
 import com.artemis.Entity;
 import com.artemis.annotations.Mapper;
-import com.artemis.systems.EntityProcessingSystem;
-//import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.artemis.systems.IntervalEntityProcessingSystem;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 
-public class MapCollisionS extends EntityProcessingSystem {
+public class MapCollisionS extends IntervalEntityProcessingSystem {
 	@Mapper ComponentMapper<PositionC> posMap;
 	@Mapper ComponentMapper<VelocityC> velMap;
 	@Mapper ComponentMapper<SpriteC> spriteMap;
@@ -20,7 +19,7 @@ public class MapCollisionS extends EntityProcessingSystem {
 	
 	@SuppressWarnings({ "unchecked" })
 	public MapCollisionS() {
-		super(Aspect.getAspectForAll(VelocityC.class, SpriteC.class));
+		super(Aspect.getAspectForAll(VelocityC.class, SpriteC.class), 1/60f);
 	}
 
 	@Override
@@ -34,8 +33,8 @@ public class MapCollisionS extends EntityProcessingSystem {
 		//THESE ALL CHECK FOR COLLISIONS
 		water = collidesWater(sprite, "water");
 		if(velocity.velY < 0) { // going down, checks for diagonals on bottom
-			diagonalLeft = collidesDiagonal(sprite, "diagonalLeft");
-			diagonalRight = collidesDiagonal(sprite, "diagonalRight");
+			diagonalLeft = collidesDiagonal(sprite, position, "diagonalLeft");
+			diagonalRight = collidesDiagonal(sprite, position, "diagonalRight");
 			if(!diagonalLeft || !diagonalRight)
 			collisionY = collidesBottom(sprite, "blocked");
 		}
@@ -50,15 +49,18 @@ public class MapCollisionS extends EntityProcessingSystem {
 		if(collisionX) {
 			velocity.velX = 0;
 		}
-		if(diagonalLeft && -((position.x+0.5f)%1.0f)>=(position.y%1.0f))
+		if(diagonalLeft && -((position.x+0.5f)%1.0f)>=(position.y%1f)){
 			velocity.velY=velocity.velX;
-		else if(diagonalRight){
-			velocity.velY=velocity.velX;
-			float newPosition=(float) (Math.floor(position.y+0.02f))+((position.x+0.5f)%1f);;
-			if((position.x+0.5f)%1f > 0.5f)
-				newPosition =(float) (Math.floor(position.y-0.02f))+((position.x+0.5f)%1f);
-            if((position.x+0.51f)%1f>=position.y%1f)
-                position.y=newPosition;
+		}
+		else if(diagonalRight && ((position.x+0.5f)%1f>=position.y%1f) ){
+			velocity.velY=velocity.velX*1.3f;
+			float newPosition=(float) (Math.floor(position.y))+((position.x+0.5f)%1f);
+			if((position.x+0.5f)%1f > 0.85f)
+				newPosition=(float) (Math.floor(position.y-0.1f))+((position.x+0.5f)%1f);
+				//new y is old y converted to int, plus halfway point of sprite's x, modulus 1
+				//presents problem of being called too early.
+			if(position.y>=newPosition)
+				position.y=newPosition;
 			System.out.println(((position.x+0.5f)%1.0f) + " and " + ((position.y)%1.0f));
 		}
 		else if(collisionY) {
@@ -66,7 +68,7 @@ public class MapCollisionS extends EntityProcessingSystem {
 			position.y = Math.round(position.y);
 		}
 		if(water){
-			velocity.velY -= (velocity.velY/6f - 0.4f);
+			velocity.velY -= (velocity.velY/12f - 0.58f);
 			velocity.velX -= (velocity.velX/6f);
 		}
 	}
@@ -95,11 +97,12 @@ public class MapCollisionS extends EntityProcessingSystem {
 		return false;
 	}
 
-	private boolean collidesDiagonal(SpriteC sprite, String id) {
+	private boolean collidesDiagonal(SpriteC sprite, PositionC position, String id) {
 		if(isCellBlocked(sprite.sprite.getX()+0.5f, sprite.sprite.getY(), id))
 			return true;
-		if(isCellBlocked(sprite.sprite.getX()+0.5f, sprite.sprite.getY()-0.1f, id))
-			return true;
+		if((position.x+0.5f)%1f > 0.85f)
+			if(isCellBlocked(sprite.sprite.getX()+0.5f, sprite.sprite.getY()-0.1f, id))
+				return true;
 		return false;
 	}
 	
