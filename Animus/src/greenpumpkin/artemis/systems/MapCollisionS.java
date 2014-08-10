@@ -52,7 +52,7 @@ public class MapCollisionS extends EntityProcessingSystem {
 		}
 		if(diagonalLeft && -((position.x+0.5f)%1.0f)>=(position.y%1.0f))
 			velocity.velY=velocity.velX;
-		else if(diagonalRight && ((position.x+0.5f)%1.0f)>=((position.y)%1.0f)){
+		else if(diagonalRight){
 			velocity.velY=velocity.velX;
 			float newPosition=(float) (Math.floor(position.y+0.02f))+((position.x+0.5f)%1f);;
 			if((position.x+0.5f)%1f > 0.5f)
