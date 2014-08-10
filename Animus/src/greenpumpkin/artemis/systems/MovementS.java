@@ -32,8 +32,8 @@ public class MovementS extends IntervalEntityProcessingSystem {
 		PositionC position = posMap.get(e);
 		VelocityC velocity = velMap.get(e);
 		
-		position.addX( velocity.velX * world.getDelta() );
-		position.addY( velocity.velY * world.getDelta() );
+		position.addX( velocity.velX * (1/60f));
+		position.addY( velocity.velY * (1/60f));
 		
 		if(position.y<0)
 			position.y=0;
