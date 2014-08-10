@@ -54,6 +54,10 @@ public class MapCollisionS extends EntityProcessingSystem {
 			velocity.velY=velocity.velX;
 		else if(diagonalRight && ((position.x+0.5f)%1.0f)>=((position.y)%1.0f)){
 			velocity.velY=velocity.velX;
+			float newPosition=(float) (Math.floor(position.y+0.02f))+((position.x+0.5f)%1f);;
+			if((position.x+0.5f)%1f > 0.5f)
+				newPosition =(float) (Math.floor(position.y-0.02f))+((position.x+0.5f)%1f);
+			position.y=newPosition;
 			System.out.println(((position.x+0.5f)%1.0f) + " and " + ((position.y)%1.0f));
 		}
 		else if(collisionY) {
@@ -77,8 +81,8 @@ public class MapCollisionS extends EntityProcessingSystem {
 	private boolean collidesRight(SpriteC sprite, String id) {
 		if(isCellBlocked(sprite.sprite.getX() + 1, sprite.sprite.getY() + 1, id))
 			return true;
-		if(isCellBlocked(sprite.sprite.getX() + 1, sprite.sprite.getY()+0.4f, id))
-			return true;
+		//if(isCellBlocked(sprite.sprite.getX() + 1, sprite.sprite.getY()+0.2f, id))
+			//return true;
 		return false;
 	}
 
@@ -92,6 +96,8 @@ public class MapCollisionS extends EntityProcessingSystem {
 
 	private boolean collidesDiagonal(SpriteC sprite, String id) {
 		if(isCellBlocked(sprite.sprite.getX()+0.5f, sprite.sprite.getY(), id))
+			return true;
+		if(isCellBlocked(sprite.sprite.getX()+0.5f, sprite.sprite.getY()-0.1f, id))
 			return true;
 		return false;
 	}
@@ -111,7 +117,6 @@ public class MapCollisionS extends EntityProcessingSystem {
 	}
 	
 	private boolean isCellBlocked(float x, float y, String id) {
-		System.out.println("check.");
 		Boolean blocked = false;
 		Cell cell = AnimusWorld.collisionLayer.getCell((int) (x), (int) (y));
 		if(cell != null){
