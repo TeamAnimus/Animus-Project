@@ -13,7 +13,7 @@ import com.artemis.managers.GroupManager;
 ////////////////////////////////////////////////////////////
 
 
-public class PlayerE {
+public class PlayerFactory {
 
 	public static Entity create(World world, float x, float y) {
 		Entity e = world.createEntity();

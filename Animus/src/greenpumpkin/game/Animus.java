@@ -16,7 +16,7 @@ public class Animus extends Game {
 
 	@Override
 	public void create() {
-		setScreen(new Test()); //This defines what screen loads first.
+		setScreen(new TestWorld()); //This defines what screen loads first.
 	}
 
 	public static void main (String[] arg) {

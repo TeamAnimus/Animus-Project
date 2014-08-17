@@ -3,7 +3,7 @@ package greenpumpkin.artemis.entities;
 import com.artemis.Entity;
 import com.artemis.World;
 
-public class SoundEffectE {
+public class LightRendererFactory {
 	
 	public static Entity create(World world) {
 		Entity e = world.createEntity();
